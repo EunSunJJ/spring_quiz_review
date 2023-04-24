@@ -31,4 +31,28 @@ public class RealEstateBO {
 	public List<RealEstate> getRealEstateByAreaPrice (int area, int price) {
 		return realEstateMapper.selectRealEstateByAreaPrice(area, price);
 	}
+	
+	// input : realEstate
+	// output : int
+	public int addRealEstate(RealEstate realEstate) {
+		return realEstateMapper.insertRealEstate(realEstate);
+	}
+	
+	// input : realtorId address area type price rentPrice
+	// output : int
+	public int addRealEstateAsField(int realtorId, String address, int area, String type, int price, int rentPrice) {
+		return realEstateMapper.insertRealEstateAsField(realtorId, address, area, type, price, rentPrice);
+	}
+	
+	// input : id type price
+	// output : int
+	public int updateRealEstateById(int id, String type, int price) {
+		return realEstateMapper.updateRealEstateById(id, type, price);
+	}
+	
+	// input : id
+	// output : int
+	public int deleteRealEstateById(int id) {
+		return realEstateMapper.deleteRealEstateById(id);
+	}
 }
