@@ -25,13 +25,14 @@
 		</thead>
 
 		<tbody>
-		<c:forEach var="bill" items="${cardBills}">
+		<c:forEach var="bill" items="${cardBill}">
 			<tr>
 				<td>${bill.store}</td>
-				
-				<td>${bill.pay}</td>
-				<td>${bill.date}</td>
-				
+				<td><fmt:formatNumber type="currency" value="${bill.pay}"/></td>
+				<td>
+				<fmt:parseDate value="${bill.date}" pattern="yyyy-MM-dd" var="date"/>
+				<fmt:formatDate value="${date}" pattern="yyyy년 M월 dd일"/>
+				</td>
 				<td>${bill.installment}</td>
 			</tr>
 		</c:forEach>
